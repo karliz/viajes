@@ -1,5 +1,6 @@
 package bootstrap.liftweb
 
+import code.model.DataBase
 import net.liftweb._
 import util._
 import Helpers._
@@ -11,8 +12,9 @@ import sitemap._
 import Loc._
 import mapper._
 
-import code.model._
 import net.liftmodules.JQueryModule
+
+import scala.xml.Text;
 
 
 /**
@@ -21,45 +23,49 @@ import net.liftmodules.JQueryModule
  */
 class Boot {
   def boot {
-    if (!DB.jndiJdbcConnAvailable_?) {
-      val vendor = 
-	new StandardDBVendor(Props.get("db.driver") openOr "org.h2.Driver",
-			     Props.get("db.url") openOr 
-			     "jdbc:h2:lift_proto.db;AUTO_SERVER=TRUE",
-			     Props.get("db.user"), Props.get("db.password"))
 
-      LiftRules.unloadHooks.append(vendor.closeAllConnections_! _)
-
-      DB.defineConnectionManager(util.DefaultConnectionIdentifier, vendor)
-    }
-
-    // Use Lift's Mapper ORM to populate the database
-    // you don't need to use Mapper to use Lift... use
-    // any ORM you want
-    Schemifier.schemify(true, Schemifier.infoF _, User)
+    // Database init
+    DataBase.initDatabase()
 
     // where to search snippet
     LiftRules.addToPackages("code")
 
     // Build SiteMap
+
+    // Mapa del Sitio
     def sitemap = SiteMap(
-      Menu.i("Home") / "index" >> User.AddUserMenusAfter, // the simple way to declare a menu
 
-      // more complex because this menu allows anything in the
-      // /static path to be visible
-      Menu(Loc("Static", Link(List("static"), true, "/static/index"), 
-	       "Static Content")))
+      // Menu para ver mensajes
+      Menu.i("Index") / "index" / ** >> Title(i => Text("Home Page")),
 
-    def sitemapMutators = User.sitemapMutator
+      // Menu para ver mensajes
+      Menu.i("Funcionarios") / "funcionarios" / ** >> Title(i => Text("Funcionarios")),
 
-    // set the sitemap.  Note if you don't want access control for
-    // each page, just comment this line out.
-    LiftRules.setSiteMapFunc(() => sitemapMutators(sitemap))
+      // Menu para ver cargos
+      Menu.i("Cargos") / "cargos" / ** >> Title(i => Text("Cargos Pages"))/* >> BootHelpers.loggedIn*/,
 
-    //Init the jQuery module, see http://liftweb.net/jquery for more information.
-    LiftRules.jsArtifacts = JQueryArtifacts
-    JQueryModule.InitParam.JQuery=JQueryModule.JQuery191
-    JQueryModule.init()
+      // Menu para ver mensajes
+      Menu.i("Mensajes") / "mensajes" / ** >> Title(i => Text("Mensajes Stuff")),
+
+      // Menu para ver las areas, los "**" quieren decir que también podemos ver los subdirectorios
+      Menu.i("Areas") / "areas" / ** >> LocGroup("areas") >> Title(i => Text("Areas Stuff")),
+
+      // Menu para ver los trabajadores de alguna area en particular
+      Menu.i("Trabajadores") / "trabajadores" / ** >> LocGroup("trabajadores") >> Title(i => Text("Trabajadores Stuff")),
+
+      // Menu para modificar el subsistema
+      Menu.i("Subsistema") / "subsistemas" / ** >> Title(i => Text("Subsistemas Stuff")),
+
+      // Menu para cerrar la sesión
+      Menu.i("CerrarSesión") / "salir" >> Title(i => Text("Cerrar Sesión")),
+
+      Menu(Loc("Static", Link(List("static"), true, "/static/index"),
+        "Static Content"))
+
+    )
+
+
+    LiftRules.setSiteMap(sitemap)
 
     //Show the spinny image when an Ajax call starts
     LiftRules.ajaxStart =
@@ -72,14 +78,11 @@ class Boot {
     // Force the request to be UTF-8
     LiftRules.early.append(_.setCharacterEncoding("UTF-8"))
 
-    // What is the function to test if a user is logged in?
-    LiftRules.loggedInTest = Full(() => User.loggedIn_?)
+    LiftRules.loggedInTest = Full(() => true)
 
     // Use HTML5 for rendering
     LiftRules.htmlProperties.default.set((r: Req) =>
       new Html5Properties(r.userAgent))    
 
-    // Make a transaction span the whole HTTP request
-    S.addAround(DB.buildLoanWrapper)
   }
 }
