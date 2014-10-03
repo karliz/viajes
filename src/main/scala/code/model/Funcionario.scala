@@ -6,10 +6,19 @@ import scala.slick.driver.MySQLDriver.simple._
 /**
  * Created by neto on 29/09/14.
  */
-case class Funcionario(id: Option[Int], institución: String, nombre: String, primerApellido: String, segundoApellido: String,
-                       nombreCompleto: String, tipoPersonal: String, nombreDelCargo: String,
-                       nombreDelCargoSuperior: String, unidadAdministrativa: String, claveDelPuesto: String,
-                       nombreDelPuesto: String, correoElectrónico: String)
+case class Funcionario(id: Option[Int],
+                       institución: String,
+                       nombre: String,
+                       primerApellido: String,
+                       segundoApellido: String,
+                       nombreCompleto: String,
+                       tipoPersonal: String,
+                       nombreDelCargo: String,
+                       nombreDelCargoSuperior: String,
+                       unidadAdministrativa: String,
+                       claveDelPuesto: String,
+                       nombreDelPuesto: String,
+                       correoElectrónico: String)
 
 class Funcionarios(tag: Tag) extends Table[Funcionario](tag, "FUNCIONARIOS") {
 
@@ -29,17 +38,4 @@ class Funcionarios(tag: Tag) extends Table[Funcionario](tag, "FUNCIONARIOS") {
 
 
   def * = (id.?, institición, nombre, primerApellido, segundoApellido, nombreCompleto, tipoPersonal, nombreDelCargo, nombreDelCargoSuperior, unidadAdministrativa, claveDelPuesto, nombreDelPuesto, correoElectrónico) <> (Funcionario.tupled, Funcionario.unapply)
-}
-
-object Funcionario extends ((Option[Int], String, String, String, String, String, String, String, String, String, String, String, String) => Funcionario){
-
-  val funcionarios = TableQuery[Funcionarios]
-  val db = DataBase.db
-
-  def all: List[Funcionario] = {
-    db.withSession{
-      implicit session =>
-        funcionarios.list
-    }
-  }
 }

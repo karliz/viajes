@@ -11,59 +11,59 @@ import shapeless.Generic
  * Created by neto on 30/09/14.
  */
 case class Viaje(id: Option[Int],
-                                origenComisión: String,
-                                urSolicitante: String,
-                                unidadResponsable: String,
-                                tipoRepresentación: String,
-                                númeroComisión: String,
-                                servidorPúblico: String,
-                                cargo: String,
-                                grupoJerárquico: String,
-                                tipoViaje: String,
-                                noAcuerdo: String,
-                                noOficio: String,
-                                paisOrigen: String,
-                                estadoOrigen: String,
-                                ciudadOrigen: String,
-                                paisDestino: String,
-                                estadoDestino: String,
-                                ciudadDestino: String,
-                                tarifaDiaria: Int,
-                                monedad: String,
-                                tema: String,
-                                tipoComisión: String,
-                                nombreEvento: String,
-                                urlEvento: String,
-                                fechaInicio: String,
-                                fechaFin: String,
-                                motivoComisión: String,
-                                antecedentes: String,
-                                actividadesRealizadas: String,
-                                resultadosObtenidos: String,
-                                contribucionesIFAI: String,
-                                linkComunicado: String,
-                                instituciónCubrePasaje: String,
-                                tipoPasaje: String,
-                                aerolineaIda: String,
-                                númeroVuelosIda: String,
-                                aerolineaVuelta: String,
-                                númeroVuelosVuelta: String,
-                                fechaInicioComisión: String,
-                                fechaTérminoComisión: String,
-                                gastoPasajes: String,
-                                gastoViáticos: String,
-                                institucionCubreHospedaje: String,
-                                nombreHotel: String,
-                                fechaEntrada: String,
-                                fechaSalida: String,
-                                gastoTotalHospedaje: String,
-                                montoComprobadoViáticos: String,
-                                montoSinComprobación: String,
-                                montoViáticosDevuelto: String,
-                                observaciones: String
-                                 )
+                 origenComisión: String,
+                 urSolicitante: String,
+                 unidadResponsable: String,
+                 tipoRepresentación: String,
+                 númeroComisión: String,
+                 servidorPúblico: String,
+                 cargo: String,
+                 grupoJerárquico: String,
+                 tipoViaje: String,
+                 noAcuerdo: String,
+                 noOficio: String,
+                 paisOrigen: String,
+                 estadoOrigen: String,
+                 ciudadOrigen: String,
+                 paisDestino: String,
+                 estadoDestino: String,
+                 ciudadDestino: String,
+                 tarifaDiaria: Int,
+                 monedad: String,
+                 tema: String,
+                 tipoComisión: String,
+                 nombreEvento: String,
+                 urlEvento: String,
+                 fechaInicio: Option[String],
+                 fechaFin: Option[String],
+                 motivoComisión: String,
+                 antecedentes: String,
+                 actividadesRealizadas: String,
+                 resultadosObtenidos: String,
+                 contribucionesIFAI: String,
+                 linkComunicado: String,
+                 instituciónCubrePasaje: String,
+                 tipoPasaje: String,
+                 aerolineaIda: String,
+                 númeroVuelosIda: String,
+                 aerolineaVuelta: String,
+                 númeroVuelosVuelta: String,
+                 fechaInicioComisión: Option[String],
+                 fechaTérminoComisión: Option[String],
+                 gastoPasajes: String,
+                 gastoViáticos: String,
+                 institucionCubreHospedaje: String,
+                 nombreHotel: String,
+                 fechaEntrada: Option[String],
+                 fechaSalida: Option[String],
+                 gastoTotalHospedaje: String,
+                 montoComprobadoViáticos: String,
+                 montoSinComprobación: String,
+                 montoViáticosDevuelto: String,
+                 observaciones: String
+                  )
 
-class Viajes(tag:Tag) extends Table[Viaje](tag,"VIAJES") {
+class Viajes(tag: Tag) extends Table[Viaje](tag, "VIAJES") {
   def id = column[Int]("id", O.PrimaryKey, O.AutoInc)
 
   def origenComisión = column[String]("origen_comisión")
@@ -108,23 +108,23 @@ class Viajes(tag:Tag) extends Table[Viaje](tag,"VIAJES") {
 
   def tipoComisión = column[String]("tipo_comisión")
 
-  def nombreEvento = column[String]("nombre_evento")
+  def nombreEvento = column[String]("nombre_evento", O.DBType("VARCHAR(600)"))
 
   def urlEvento = column[String]("url_evento")
 
-  def fechaInicio = column[String]("fecha_inicio")
+  def fechaInicio = column[Option[String]]("fecha_inicio")
 
-  def fechaFin = column[String]("fecha_fin")
+  def fechaFin = column[Option[String]]("fecha_fin")
 
-  def motivoComisión = column[String]("motivo_comisión")
+  def motivoComisión = column[String]("motivo_comisión", O.DBType("TEXT"))
 
-  def antecedentes = column[String]("antecedentes")
+  def antecedentes = column[String]("antecedentes", O.DBType("TEXT"))
 
-  def actividadesRealizadas = column[String]("actividades_realizadas")
+  def actividadesRealizadas = column[String]("actividades_realizadas", O.DBType("TEXT"))
 
-  def resultadosObtenidos = column[String]("resultados_obtenidos")
+  def resultadosObtenidos = column[String]("resultados_obtenidos", O.DBType("VARCHAR(600)"))
 
-  def contribucionesIFAI = column[String]("contribuciones_ifai")
+  def contribucionesIFAI = column[String]("contribuciones_ifai", O.DBType("TEXT"))
 
   def linkComunicado = column[String]("link_comunicado")
 
@@ -140,9 +140,9 @@ class Viajes(tag:Tag) extends Table[Viaje](tag,"VIAJES") {
 
   def númeroVuelosVuelta = column[String]("númeroVuelosVuelta")
 
-  def fechaInicioComisión = column[String]("fechaInicioComisión")
+  def fechaInicioComisión = column[Option[String]]("fechaInicioComisión")
 
-  def fechaTérminoComisión = column[String]("fechaTérminoComisión")
+  def fechaTérminoComisión = column[Option[String]]("fechaTérminoComisión")
 
   def gastoPasajes = column[String]("gastoPasajes")
 
@@ -152,9 +152,9 @@ class Viajes(tag:Tag) extends Table[Viaje](tag,"VIAJES") {
 
   def nombreHotel = column[String]("nombreHotel")
 
-  def fechaEntrada = column[String]("fechaEntrada")
+  def fechaEntrada = column[Option[String]]("fechaEntrada")
 
-  def fechaSalida = column[String]("fechaSalida")
+  def fechaSalida = column[Option[String]]("fechaSalida")
 
   def gastoTotalHospedaje = column[String]("gastoTotalHospedaje")
 
