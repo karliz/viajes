@@ -32,7 +32,8 @@ libraryDependencies ++= {
     "net.databinder.dispatch" %% "dispatch-core" % "0.11.2",
     "com.typesafe.slick" %% "slick" % "2.1.0",
     "mysql" % "mysql-connector-java" % "5.1.33",
-    "com.chuusai" %% "shapeless" % "2.0.0"
+    "com.chuusai" %% "shapeless" % "2.0.0",
+    "com.zaxxer" % "HikariCP-java6" % "2.0.1"
   )
 }
 

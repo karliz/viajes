@@ -1,11 +1,11 @@
 package code.snippet
 
 import code.model.{Funcionarios, Viajes, DataBase, Funcionario}
-import dispatch._, Defaults._
 import net.liftweb.common.{Full, Box, Empty}
 import net.liftweb.http.{S, RequestVar, SHtml}
 
 import net.liftweb.util.Helpers._
+import scala.slick.driver.MySQLDriver.simple._
 
 import scala.slick.lifted.TableQuery
 import scala.xml.Text
@@ -20,10 +20,9 @@ class FuncionariosSnippet {
 
   def table = {
 
-    val funcionarios = DataBase.db.withSession{
-      implicit sesion =>
-        DataBase.funcionarios.filter(_.id === 1)
-          .map(p => ())
+    val funcionarios = DataBase.db.withSession {
+      implicit session =>
+        DataBase.funcionarios.run
     }
 
     ".datos-funcionario *" #>

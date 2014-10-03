@@ -20,7 +20,7 @@ case class Funcionario(id: Option[Int],
                        nombreDelPuesto: String,
                        correoElectrónico: String)
 
-class Funcionarios(tag: Tag) extends Table[Funcionario](tag, "FUNCIONARIOS") {
+class Funcionarios(tag: Tag) extends Table[Funcionario](tag, "funcionarios") {
 
   def id = column[Int]("id", O.PrimaryKey, O.AutoInc)
   def institición = column[String]("institición")

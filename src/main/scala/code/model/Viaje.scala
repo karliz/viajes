@@ -63,7 +63,7 @@ case class Viaje(id: Option[Int],
                  observaciones: String
                   )
 
-class Viajes(tag: Tag) extends Table[Viaje](tag, "VIAJES") {
+class Viajes(tag: Tag) extends Table[Viaje](tag, "viajes") {
   def id = column[Int]("id", O.PrimaryKey, O.AutoInc)
 
   def origenComisión = column[String]("origen_comisión")

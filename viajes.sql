@@ -1,5 +1,6 @@
-LOAD DATA INFILE '/Users/neto/Developer/IdeaProjects/scala/viajes/viajes.csv'
-INTO TABLE VIAJES.viajes
+# LOAD DATA INFILE '/Users/neto/Developer/IdeaProjects/scala/viajes/viajes.csv'
+LOAD DATA INFILE '/home/neto/viajes.csv'
+INTO TABLE viajes.viajes
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
