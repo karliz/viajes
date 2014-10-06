@@ -13,7 +13,7 @@ El proyecto está construido con el framework [Lift](http://liftweb.net/), [MySq
 Para la base de datos será necesario realizar lo siguiente:
 
 - ejecutar los comandos en init.sql, para crear tablas y añadir los datos del dataset
-- modificar el archivo [DataBase.scala](http://www.scala-lang.org/download/)
+- modificar el archivo [DataBase.scala](https://github.com/netoho/viajes/blob/master/src/main/scala/code/model/DataBase.scala)
 
 Una vez que este lista la base de datos, tengan la JVM y Scala, deberán ir al directorio raíz del proyecto y ejecutar
 
@@ -32,7 +32,7 @@ Se puede acceder como administrador (revisar archivo DataBase)
 Indique los miembros del equipo principal que son responsables del desarrollo y mantenimiento de este proyecto. Añadir una referencia a sus perfiles de GitHub/Twitter/LinkedIn. Ejemplo:
 
 - [Ernesto Huerta](https://github.com/netoho)
-- [Arturo Cadena](https://twitter.com/arturo2cadena)
+- [Arturo Cadena](https://github.com/arturocadena)
 
 ##Cartas de Protesta
 Ambas cartas de protesta se encuentran dentro del directorio docs
