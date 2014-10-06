@@ -6,7 +6,7 @@ import scala.slick.driver.MySQLDriver.simple._
  * Created by neto on 05/10/14.
  */
 
-case class Comisión(númeroComisión: Option[String],
+case class Comision(númeroComisión: Option[String],
                     funcionarioId: Int,
                     mecanismoOrigenId: Int,
                     instituciónGeneradora: String,
@@ -23,7 +23,7 @@ case class Comisión(númeroComisión: Option[String],
                     contribuciones: String,
                     linkCominicado: String)
 
-class Comisiones(tag: Tag) extends Table[Comisión](tag, "comisiones") {
+class Comisiones(tag: Tag) extends Table[Comision](tag, "comisiones") {
 
   def númeroComisión = column[String]("número_comisión", O.PrimaryKey)
 
@@ -72,16 +72,16 @@ class Comisiones(tag: Tag) extends Table[Comisión](tag, "comisiones") {
     actividadesRealizadas,
     resultadosObtenidos,
     contribuciones,
-    linkCominicado) <>(Comisión.tupled, Comisión.unapply)
+    linkCominicado) <>(Comision.tupled, Comision.unapply)
 
   def funcionarioFk = foreignKey("comisión_funcionario", funcionarioId, TableQuery[Funcionarios])(f => f.id, onUpdate = ForeignKeyAction.NoAction, onDelete = ForeignKeyAction.NoAction)
 
   def mecanismoOrigenFk = foreignKey("comisión_mecanismo_origen", mecanismoOrigenId, TableQuery[MecanismosOrigen])(m => m.id, onUpdate = ForeignKeyAction.NoAction, onDelete = ForeignKeyAction.NoAction)
 
-  def tipoRepresentaciónFk = foreignKey("comisión_tipo_representación", tipoRepresentaciónId, TableQuery[TiposRepresentación])(t => t.id, onUpdate = ForeignKeyAction.NoAction, onDelete = ForeignKeyAction.NoAction)
+  def tipoRepresentaciónFk = foreignKey("comisión_tipo_representación", tipoRepresentaciónId, TableQuery[TiposRepresentacion])(t => t.id, onUpdate = ForeignKeyAction.NoAction, onDelete = ForeignKeyAction.NoAction)
 
   def temaComisiónFk = foreignKey("comisión_tema", tipoRepresentaciónId, TableQuery[Temas])(t => t.id, onUpdate = ForeignKeyAction.NoAction, onDelete = ForeignKeyAction.NoAction)
 
-  def tipoComisiónFk = foreignKey("comisión_tipo", tipoRepresentaciónId, TableQuery[TiposComisión])(t => t.id, onUpdate = ForeignKeyAction.NoAction, onDelete = ForeignKeyAction.NoAction)
+  def tipoComisiónFk = foreignKey("comisión_tipo", tipoRepresentaciónId, TableQuery[TiposComision])(t => t.id, onUpdate = ForeignKeyAction.NoAction, onDelete = ForeignKeyAction.NoAction)
 
 }

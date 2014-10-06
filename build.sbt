@@ -1,8 +1,8 @@
-name := "Lift 2.6 starter template"
+name := "viajes-ifai"
 
-version := "0.0.4"
+version := "0.1.6"
 
-organization := "net.liftweb"
+organization := "mx.detcom"
 
 scalaVersion := "2.11.1"
 

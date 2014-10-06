@@ -13,12 +13,13 @@ object DataBase {
   private val config = new HikariConfig()
 
   config.setMaximumPoolSize(5)
-//  config.setDataSourceClassName("com.mysql.jdbc.jdbc2.optional.MysqlDataSource")
-//  config.addDataSourceProperty("serverName", System.getProperty("RDS_HOSTNAME", "localhost"))
-//  config.addDataSourceProperty("port", System.getProperty("RDS_PORT", "3306"))
-//  config.addDataSourceProperty("databaseName", System.getProperty("RDS_DB_NAME", "viajes"))
-//  config.addDataSourceProperty("user", System.getProperty("RDS_USERNAME", "neto"))
-//  config.addDataSourceProperty("password", System.getProperty("RDS_PASSWORD", "mysql"))
+  config.setDataSourceClassName("com.mysql.jdbc.jdbc2.optional.MysqlDataSource")
+  config.addDataSourceProperty("serverName", "localhost")
+  config.addDataSourceProperty("port", "3306")
+  config.addDataSourceProperty("databaseName", "viajes_ifai")
+  config.addDataSourceProperty("user", "neto")
+  config.addDataSourceProperty("password", "neto11235")
+
 
   val ds = new HikariDataSource(config)
 
@@ -31,13 +32,13 @@ object DataBase {
   val funcionarios = TableQuery[Funcionarios]
   val mecanismoOrigen = TableQuery[MecanismosOrigen]
   val temas = TableQuery[Temas]
-  val tiposComisiones = TableQuery[TiposComisión]
+  val tiposComisiones = TableQuery[TiposComision]
   val tiposMoneda = TableQuery[TiposMoneda]
-  val tiposRepresentación = TableQuery[TiposRepresentación]
+  val tiposRepresentación = TableQuery[TiposRepresentacion]
   val tiposViaje = TableQuery[TiposViaje]
   val tiposPasaje = TableQuery[TiposPasaje]
   val viajes = TableQuery[Viajes]
-  val viáticos = TableQuery[Viáticos]
+  val viáticos = TableQuery[Viaticos]
   val roles = TableQuery[Roles]
   val usuarios = TableQuery[Usuarios]
 

@@ -4,7 +4,7 @@ import net.liftweb.common.{Box, Full, Empty}
 import net.liftweb.http.{RequestVar, SHtml}
 import net.liftweb.util.Helpers._
 
-import code.model.{Comisión, DataBase}
+import code.model.{Comision, DataBase}
 
 import scala.slick.driver.MySQLDriver.simple._
 
@@ -14,12 +14,12 @@ import scala.xml.Text
  * Created by neto on 05/10/14.
  */
 
-object ComisiónRV extends RequestVar[Box[Comisión]](Empty)
+object ComisiónRV extends RequestVar[Box[Comision]](Empty)
 
 class ComisionesSnippet {
 
   def table = {
-    val comisiones: Seq[(String, String, String, String, String, String, Comisión)] = DataBase.db.withSession {
+    val comisiones: Seq[(String, String, String, String, String, String, Comision)] = DataBase.db.withSession {
       implicit session =>
         (for {
           (c, f) <- DataBase.comisiones leftJoin DataBase.funcionarios on (_.funcionarioId === _.id)

@@ -7,7 +7,7 @@ package code.model
 import scala.slick.driver.MySQLDriver.simple._
 import scala.slick.model.ForeignKeyAction
 
-case class Viático(id: Option[Int],
+case class Viatico(id: Option[Int],
                    viajeId: Int,
                    tipoMonedaId: Int,
                    tarifaDiaria: Int,
@@ -21,7 +21,7 @@ case class Viático(id: Option[Int],
                    montoNoComprobado: String,
                    montoDevuelto: String)
 
-class Viáticos(tag: Tag) extends Table[Viático](tag, "viáticos") {
+class Viaticos(tag: Tag) extends Table[Viatico](tag, "viáticos") {
 
   def id = column[Int]("id", O.PrimaryKey, O.AutoInc)
 
@@ -61,7 +61,7 @@ class Viáticos(tag: Tag) extends Table[Viático](tag, "viáticos") {
     costoHotel,
     montoComprobado,
     montoNoComprobado,
-    montoDevuelto) <>(Viático.tupled, Viático.unapply)
+    montoDevuelto) <>(Viatico.tupled, Viatico.unapply)
 
   def tipoMonedaFk = foreignKey("viáticos_tipo_moneda", tipoMonedaId, TableQuery[TiposMoneda])(tm => tm.id, onUpdate = ForeignKeyAction.NoAction, onDelete = ForeignKeyAction.NoAction)
 
