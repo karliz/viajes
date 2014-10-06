@@ -15,7 +15,7 @@ object DataBase {
   config.setDataSourceClassName("com.mysql.jdbc.jdbc2.optional.MysqlDataSource")
   config.addDataSourceProperty("serverName", "localhost")
   config.addDataSourceProperty("port", "3306")
-  config.addDataSourceProperty("databaseName", "viajes")
+  config.addDataSourceProperty("databaseName", "viajes_ifai")
   config.addDataSourceProperty("user", "root")
   config.addDataSourceProperty("password", "mysql")
 
