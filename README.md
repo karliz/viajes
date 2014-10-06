@@ -8,29 +8,25 @@ La aplicación se conecta a una base de datos mysql, se puede configurar la cone
 - [JVM 1.7](http://www.oracle.com/technetwork/java/javase/downloads/java-se-jre-7-download-432155.html)
 - [scala](http://www.scala-lang.org/download/)
 
-##Instalación / Configuración 
-Una vez que tengan la JVM y Scala, deberán ir al directorio raíz del proyecto y ejecutar
+##Instalación / Configuración
+El proyecto está construido con el framework [Lift](http://liftweb.net/), [MySql](http://www.mysql.com/) y [D3](http://d3js.org/)
+Para la base de datos será necesario realizar lo siguiente:
+
+- ejecutar los comandos en init.sql, para crear tablas y añadir los datos del dataset
+- modificar el archivo [DataBase.scala](http://www.scala-lang.org/download/)
+
+Una vez que este lista la base de datos, tengan la JVM y Scala, deberán ir al directorio raíz del proyecto y ejecutar
 
 - ./sbt
 - ~; container:start; container:reload /
 
 Eso debería ser suficiente, ahora tendrán corriendo el puerto 8080 de la máquina el servidor
 
-##Screenshots
-Añadir algún screenshot interesante del proyecto. Muy recomendable.
-
 ##Demo
-Un enlace a una demostración en línea de su proyecto, así como un link a un screencast de máximo 4 minutos.
+Puede verse un demo en la siguiente liga:
+ - [Demo AWS](http://voluntarios.elasticbeanstalk.com)
 
-##¿Preguntas o problemas? 
-Esta sección describe cómo otros desarrolladores y los usuarios deben interactuar con su proyecto. Aquí un ejemplo:
-
-Mantenemos la conversación del proyecto en nuestra página de problemas [issues] (https://github.com/CodeandoMexico/repo-guidelines/issues). Si usted tiene cualquier otra pregunta, nos puede contactar por correo <retos@codeandomexico.org>.
-
-##Contribuye
-Sección para explicar cómo contribuir a su proyecto. Debe añadir enlace al archivo CONTRIBUTING.md. Ejemplo:
-
-Queremos que este proyecto sea el resultado de un esfuerzo de la comunidad. Usted puede colaborar con [código](https://github.com/CodeandoMexico/repo-guidelines/pulls), [ideas](https://github.com/CodeandoMexico/repo-guidelines/issues) and [bugs](https://github.com/CodeandoMexico/repo-guidelines/issues).
+Se puede acceder como administrador (revisar archivo DataBase)
 
 ##Equipo
 Indique los miembros del equipo principal que son responsables del desarrollo y mantenimiento de este proyecto. Añadir una referencia a sus perfiles de GitHub/Twitter/LinkedIn. Ejemplo:
@@ -38,7 +34,12 @@ Indique los miembros del equipo principal que son responsables del desarrollo y 
 - [Ernesto Huerta](https://github.com/netoho)
 - [Arturo Cadena](https://twitter.com/arturo2cadena)
 
+##Cartas de Protesta
+Ambas cartas de protesta se encuentran dentro del directorio docs
+
+- [Ernesto Huerta](https://github.com/netoho/viajes/blob/master/docs/ErnestoHuertaCarta.pdf)
+- [Arturo Cadena](https://github.com/netoho/viajes/blob/master/docs/ArturoCadenaCarta.pdf)
+
 
 ##Licencia
 Este proyecto está protegido bajo la licencia MIT.
-Sección para agregar la licencia. Recuerda agregar el LICENSE.txt al repositorio.ç
