@@ -23,7 +23,7 @@ case class Funcionario(id: Option[Int],
 class Funcionarios(tag: Tag) extends Table[Funcionario](tag, "funcionarios") {
 
   def id = column[Int]("id", O.PrimaryKey, O.AutoInc)
-  def institición = column[String]("institición")
+  def institución = column[String]("institución")
   def nombre = column[String]("nombre")
   def primerApellido = column[String]("primerApellido")
   def segundoApellido = column[String]("segundoApellido")
@@ -37,5 +37,17 @@ class Funcionarios(tag: Tag) extends Table[Funcionario](tag, "funcionarios") {
   def correoElectrónico = column[String]("correoElectrónico")
 
 
-  def * = (id.?, institición, nombre, primerApellido, segundoApellido, nombreCompleto, tipoPersonal, nombreDelCargo, nombreDelCargoSuperior, unidadAdministrativa, claveDelPuesto, nombreDelPuesto, correoElectrónico) <> (Funcionario.tupled, Funcionario.unapply)
+  def * = (id.?,
+    institución,
+    nombre,
+    primerApellido,
+    segundoApellido,
+    nombreCompleto,
+    tipoPersonal,
+    nombreDelCargo,
+    nombreDelCargoSuperior,
+    unidadAdministrativa,
+    claveDelPuesto,
+    nombreDelPuesto,
+    correoElectrónico) <> (Funcionario.tupled, Funcionario.unapply)
 }

@@ -25,7 +25,7 @@ class Boot {
   def boot {
 
     // Database init
-    DataBase.initDatabase()
+//    DataBase.initDatabase()
 
     // where to search snippet
     LiftRules.addToPackages("code")
@@ -42,7 +42,7 @@ class Boot {
       Menu.i("Funcionarios") / "funcionarios" / ** >> Title(i => Text("Funcionarios")),
 
       // Menu para ver cargos
-      Menu.i("Cargos") / "cargos" / ** >> Title(i => Text("Cargos Pages"))/* >> BootHelpers.loggedIn*/,
+      Menu.i("Cargos") / "cargos" / ** >> Title(i => Text("Cargos Pages")) /* >> BootHelpers.loggedIn*/ ,
 
       // Menu para ver mensajes
       Menu.i("Mensajes") / "mensajes" / ** >> Title(i => Text("Mensajes Stuff")),
@@ -56,8 +56,16 @@ class Boot {
       // Menu para modificar el subsistema
       Menu.i("Subsistema") / "subsistemas" / ** >> Title(i => Text("Subsistemas Stuff")),
 
-      // Menu para cerrar la sesión
+      // Menu para cerrar sesión
       Menu.i("CerrarSesión") / "salir" >> Title(i => Text("Cerrar Sesión")),
+
+      // Menu para iniciar sesión
+      Menu.i("IniciarSesión") / "login" >> Title(i => Text("Iniciar Sesión")),
+
+
+      // Menu del administrador
+      Menu.i("Admin") / "admin" / ** >> Title(i => Text("Administración")),
+
 
       Menu(Loc("Static", Link(List("static"), true, "/static/index"),
         "Static Content"))
@@ -70,7 +78,7 @@ class Boot {
     //Show the spinny image when an Ajax call starts
     LiftRules.ajaxStart =
       Full(() => LiftRules.jsArtifacts.show("ajax-loader").cmd)
-    
+
     // Make the spinny image go away when it ends
     LiftRules.ajaxEnd =
       Full(() => LiftRules.jsArtifacts.hide("ajax-loader").cmd)
@@ -82,7 +90,12 @@ class Boot {
 
     // Use HTML5 for rendering
     LiftRules.htmlProperties.default.set((r: Req) =>
-      new Html5Properties(r.userAgent))    
+      new Html5Properties(r.userAgent))
+
+    // Cerrando conecciones
+    LiftRules.unloadHooks.append(() => {
+      DataBase.ds.close()
+    })
 
   }
 }

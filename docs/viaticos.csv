@@ -1,0 +1,40 @@
+viaje id,Moneda,Tarifa diaria de viaticos por dia,Gasto por concepto de viaticos en MN,Institucion que cubre pasaje,Nombre del hotel,Fecha de entrada,Fecha de salida,Costo total del hospedaje,Monto comprobado de viaticos,Monto sin comprobacion,Monto de viaticos devueltos
+1,1,1250,2500,IFAI,Grand Hotel Tijuana,31/01/13,2/2/2013,2040,2500,No disponible,No disponible
+2,1,1250,625,No disponible,Hotel Gobernador,28/02/13,28/02/13,0,625,62.5,625
+3,1,1250,111.5,IFAI,No aplica,No aplica,No aplica,No aplica,861.52,62.5,236.52
+4,1,1650,3207,IFAI,Plaza agua caliente,31/01/13,2/2/2013,2794,3207,No disponible,93
+5,1,1250,1845,IFAI,Hotel Boutique la Cava,7/2/2013,8/2/2013,500,1845,No disponible,595
+6,1,1650,203,IFAI,No aplica,No aplica,No aplica,No aplica,287,No disponible,No disponible
+7,1,1650,71,No disponible,No aplica,No aplica,No aplica,No aplica,71,No disponible,1579
+8,1,1250,200,IFAI,No aplica,No aplica,No aplica,No aplica,495,0,130
+9,1,1250,625,IFAI,No aplica,No aplica,No aplica,No aplica,625,27,No disponible
+10,1,1700,1005.17,IFAI,Urdi헵ola,28/01/13,29/01/13,502.18,1005.17,No disponible,244.83
+11,1,980,1416,IFAI,Mar헴a de Lourdes,29/01/13,30/01/13,500,1416,15,909
+12,2,450,12544.2,No disponible,No aplica,No aplica,No aplica,No aplica,No aplica,No aplica,12544.2
+13,1,1250,225,IFAI,No aplica,No aplica,No aplica,No aplica,554,0,71
+14,2,450,13156.07,IFAI,Eurotel,22/04/13,26/04/13,555.74,13156.07,0,436.63
+15,2,450,No disponible,IFAI,Hotel Boutique Alma,3/3/2013,15/03/13,No disponible,No disponible,No disponible,No disponible
+16,1,1650,No disponible,IFAI,No aplica,No aplica,No aplica,No aplica,260,0,260
+17,1,1250,314.5,IFAI,No aplica,No aplica,No aplica,No aplica,252,62.5,310.5
+18,1,1250,6250,IFAI,Mateos 1215,25/04/13,30/04/13,2495,5628,625,0
+19,1,1250,1747,IFAI,Mansur,22/04/13,24/04/13,1040,1706,41,No disponible
+20,1,1250,1911.5,IFAI,Mansur,22/04/13,24/04/13,1040,1873.5,38,No disponible
+21,1,1250,934,IFAI,Hotel Real de Minas Inn,8/5/2013,9/5/2013,700,1581.55,50,No disponible
+22,1,1250,625,No disponible,No aplica,No aplica,No aplica,No aplica,570,50,No disponible
+23,1,1250,470.05,IACIP,No disponible,No disponible,No disponible,No disponible,470.05,0,779.95
+24,1,1250,552,No disponible,No aplica,No aplica,No aplica,No aplica,552,62,73
+25,2,450,15622.36,eCOM-LAC,Conrad,15/05/14,18/05/14,7920,15519.63,102.67,630.7
+26,1,1250,1026,No disponible,Hotel California,30/05/13,31/05/13,480,901,125,224
+27,1,1250,171,IFAI,No aplica,No aplica,No aplica,No aplica,108.5,62.5,454
+28,1,1650,3300,IFAI,Holliday Inn,5/6/2013,7/6/2013,3492.72,3682.76,0,No disponible
+29,1,1250,126.5,IFAI,No aplica,No aplica,No aplica,No aplica,625,0,No disponible
+30,1,1250,625,IFAI,No disponible,No disponible,No disponible,No disponible,625,0,0
+31,1,1250,210,IFAI,No aplica,No aplica,No aplica,No aplica,150,60,No disponible
+32,1,1250,108,IFAI,No aplica,No aplica,No aplica,No aplica,962.01,0,337.01
+33,1,1250,1875,IFAI,No disponible,No disponible,No disponible,No disponible,2023.48,0,No disponible
+34,2,450,487.05,"Secretaria de Asuntos Juridicos de la OEA
+",No disponible,No disponible,No disponible,No disponible,487.5,0,No disponible
+35,1,1250,4194.27,IFAI,Mateos 1215,1/5/2013,5/5/2013,1996,3708.6,415.4,876
+36,1,1250,,IFAI,No aplica,No aplica,No aplica,No aplica,190,62.5,372.5
+37,1,1250,552.5,IFAI,Holiday Inn,8/4/2013,8/4/2013,168.97,1343.94,62.5,No disponible
+38,2,450,22824.97,IFAI,No disponible,No disponible,No disponible,No disponible,9396,No disponible,No disponible
